@@ -2,11 +2,28 @@
 //
 
 #include <iostream>
+#include  <string>    
+#include <regex>
+#include <Windows.h>
 
-int main()
+#define GREEN   "\033[32m"
+#define RED     "\033[31m"
+
+
+
+using namespace std;
+
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello Open Source Development World!\n";
+    if (std::regex_match("http://www.google.com", std::regex("(http|https):\/\/(\w+\.)*(\w*)\/([\w\d]+\/{0,1})+")))
+        
+        std::cout << GREEN << "valid URL \n";
+    std::cout << std::endl;
+
+    return 0;
 }
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
