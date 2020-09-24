@@ -2,24 +2,33 @@
 //
 
 #include <iostream>
-#include  <string>    
+#include <fstream>
+#include <string>    
 #include <regex>
 #include <Windows.h>
 
-#define GREEN   "\033[32m"
-#define RED     "\033[31m"
+//#define GREEN   "\033[32m"
+//#define RED     "\033[31m"
 
 
 
 using namespace std;
 
-int main(int argc, char* argv[])
+int main()
 {
-    if (std::regex_match("http://www.google.com", std::regex("(http|https):\/\/(\w+\.)*(\w*)\/([\w\d]+\/{0,1})+")))
-        
-        std::cout << GREEN << "valid URL \n";
-    std::cout << std::endl;
+    std::ifstream file("URLFile.txt");
+    std::string str; 
+    while (std::getline(file, str))
+    {
+        // Process str
+        if (std::regex_match("http://www.google.com", std::regex("(http|https):\/\/(\w+\.)*(\w*)\/([\w\d]+\/{0,1})+")))
 
+            //    std::cout << GREEN << "valid URL \n";
+
+           std::cout << std::endl;
+
+    }
+    //
     return 0;
 }
 

@@ -1,6 +1,2 @@
 ﻿  ConsoleApplicationOSD600.cpp
-C:\Users\Strawberry\source\repos\ConsoleApplicationOSD600\ConsoleApplicationOSD600\ConsoleApplicationOSD600.cpp(16,62): warning C4129: '/': unrecognized character escape sequence
-C:\Users\Strawberry\source\repos\ConsoleApplicationOSD600\ConsoleApplicationOSD600\ConsoleApplicationOSD600.cpp(16,62): warning C4129: 'w': unrecognized character escape sequence
-C:\Users\Strawberry\source\repos\ConsoleApplicationOSD600\ConsoleApplicationOSD600\ConsoleApplicationOSD600.cpp(16,62): warning C4129: '.': unrecognized character escape sequence
-C:\Users\Strawberry\source\repos\ConsoleApplicationOSD600\ConsoleApplicationOSD600\ConsoleApplicationOSD600.cpp(16,62): warning C4129: 'd': unrecognized character escape sequence
   ConsoleApplicationOSD600.vcxproj -> C:\Users\Strawberry\source\repos\ConsoleApplicationOSD600\Debug\ConsoleApplicationOSD600.exe
