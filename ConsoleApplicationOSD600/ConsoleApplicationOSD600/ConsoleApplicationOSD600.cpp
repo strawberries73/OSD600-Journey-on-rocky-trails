@@ -2,13 +2,12 @@
 //
 
 #include <iostream>
-#include <fstream>
-#include <string>    
-#include <regex>
-#include <Windows.h>
+#include <cstring>
+#include <string>
+#include <cstddef>         // std::size_t
 
-//#define GREEN   "\033[32m"
-//#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define RED     "\033[31m"
 
 
 
@@ -16,20 +15,71 @@ using namespace std;
 
 int main()
 {
-    std::ifstream file("URLFile.txt");
-    std::string str; 
-    while (std::getline(file, str))
-    {
-        // Process str
-        if (std::regex_match("http://www.google.com", std::regex("(http|https):\/\/(\w+\.)*(\w*)\/([\w\d]+\/{0,1})+")))
+	std::string url;
+	std::cout << "Enter URL: ";
+	getline(std::cin, url);
 
-            //    std::cout << GREEN << "valid URL \n";
+	string prefix1 = url.substr(0, 8);
+	string prefix2 = url.substr(0, 7);
 
-           std::cout << std::endl;
+	if (prefix1 == "https://") {
+		size_t dot = url.find_last_of('.');
+		size_t slash = url.substr(dot).find("\/");
+		string domain = url.substr(0, slash - 1);
+		string path = url.substr(slash);
 
-    }
-    //
-    return 0;
+		if (2 != slash - 1 ||
+			3 != slash - 1 ||
+			4 != slash - 1) {
+			//add line to print error
+			std::cout << "good url 1";
+		}
+		else {
+			std::cout << "bad url ";
+		}
+	}
+	else if (prefix2 == "http://") {
+		size_t dot = url.find_last_of('.');
+		size_t slash = url.substr(dot).find("\/");
+		string domain = url.substr(0, slash - 1);
+		string path = url.substr(slash);
+
+		if (2 != slash - 1 ||
+			3 != slash - 1 ||
+			4 != slash - 1) {
+			//add line to print error
+			std::cout << "good url 1";
+		}
+		else {
+			std::cout << "bad url ";
+		}
+	}
+	else if (prefix1 != "https://" || prefix2 != "http://") {
+		std::cout << "bad url 3";	//the url is missing the protocol http
+	}
+
+	// Use a while loop together with the getline() function to read the file line by line
+   // while (getline(MyReadFile, myText)) {
+	   // if(argv[1] = std::regex("(http|https):\/\/(\w+\.)(\w)\/([\w\d]+\/{0,1})+"))
+		// Output the text from the file
+	  //  cout << GREEN << myText;
+   // }
+
+	// Close the file
+   // MyReadFile.close();
+	//std::ifstream file("text.txt");
+	//std::string str;
+   // while (std::getline(file, str)) {
+
+		//Checking if each line is valid URL
+		//if (std::regex_match("http://www.google.com", std::regex("(http|https):\/\/(\w+\.)(\w)\/([\w\d]+\/{0,1})+")))
+
+	 //   std::cout << str << "\n";
+		//std::cout << GREEN << "valid URL \n";
+
+		//if not URL address, then printing the line in red
+   // }
+	//return 0;
 }
 
 
