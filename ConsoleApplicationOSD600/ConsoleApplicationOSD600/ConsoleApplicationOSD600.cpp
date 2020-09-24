@@ -48,38 +48,17 @@ int main()
 			3 != slash - 1 ||
 			4 != slash - 1) {
 			//add line to print error
-			std::cout << "good url 1";
+			std::cout << GREEN << "good url 1";
 		}
 		else {
-			std::cout << "bad url ";
+			std::cout << RED << "bad url ";
 		}
 	}
 	else if (prefix1 != "https://" || prefix2 != "http://") {
-		std::cout << "bad url 3";	//the url is missing the protocol http
+		std::cout << "Unknown";	//the url is missing the protocol http
 	}
 
-	// Use a while loop together with the getline() function to read the file line by line
-   // while (getline(MyReadFile, myText)) {
-	   // if(argv[1] = std::regex("(http|https):\/\/(\w+\.)(\w)\/([\w\d]+\/{0,1})+"))
-		// Output the text from the file
-	  //  cout << GREEN << myText;
-   // }
-
-	// Close the file
-   // MyReadFile.close();
-	//std::ifstream file("text.txt");
-	//std::string str;
-   // while (std::getline(file, str)) {
-
-		//Checking if each line is valid URL
-		//if (std::regex_match("http://www.google.com", std::regex("(http|https):\/\/(\w+\.)(\w)\/([\w\d]+\/{0,1})+")))
-
-	 //   std::cout << str << "\n";
-		//std::cout << GREEN << "valid URL \n";
-
-		//if not URL address, then printing the line in red
-   // }
-	//return 0;
+  
 }
 
 
