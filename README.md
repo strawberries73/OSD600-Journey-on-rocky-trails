@@ -12,7 +12,8 @@ Run command:  node index.js argv.html
 
 Features:
 
-Prints good Urls in green and prints broken Urls in red.  Results are in VSCode.jpg.
+Prints good Urls in green and prints broken Urls in red.
+https://github.com/strawberries73/OSD600-Journey-on-rocky-trails/blob/master/vscode.jpg
 
 
 
