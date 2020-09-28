@@ -12,7 +12,7 @@ Run command:  node index.js argv.html
 
 Features:
 
-Prints good Urls in green and prints broken Urls in red.  Results are in jpg.
+Prints good Urls in green and prints broken Urls in red.  Results are in VSCode.jpg.
 
 
 
