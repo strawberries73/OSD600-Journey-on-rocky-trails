@@ -8,6 +8,8 @@ npm install
 
 npm install node-fetch
 
+npm install colors
+
 Run command:  node index.js argv.html
 
 Features:
