@@ -1,3 +1,18 @@
 # OSD600-Journey-on-rocky-trails
 As much as I desire to become more acquainted with C++, I was truly not happy with the slow progression and outcome of this version. What was I thinking?!
 I have made a version 2 on node.js.
+
+Install project dependencies:
+
+npm install
+
+npm install node-fetch
+
+Run command:  node index.js argv.html
+
+Features:
+
+Prints good Urls in green and prints broken Urls in red.  Results are in jpg.
+
+
+
