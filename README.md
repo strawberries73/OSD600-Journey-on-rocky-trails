@@ -2,15 +2,18 @@
 As much as I desire to become more acquainted with C++, I was truly not happy with the slow progression and outcome of this version. What was I thinking?!
 I have made a version 2 on node.js.
 
-Install project dependencies:
+Clone CommandLinkToolCheck since this is the successful version.
 
-npm install
+  Install project dependencies:
 
-npm install node-fetch
+   npm install
 
-npm install colors
+   npm install node-fetch
 
-Run command:  node index.js argv.html
+   npm install colors
+
+   Run command:  node index.js argv.html
+   
 
 Features:
 
