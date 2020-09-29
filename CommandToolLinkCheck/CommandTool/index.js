@@ -13,7 +13,7 @@ console.log("Run with a file name to process the file, run with the argument v o
 }
 
 
-if(process.argv.length == 2){ // as in [0] = C:\Program Files\nodejs\node.exe [1] = C:\Users\Joey Assal\Downloads\Jenn- CommandToolLinkCheck\CommandTool\index.js
+if(process.argv.length == 2){
     greetingMessage();
     console.log("Hello");
 }
