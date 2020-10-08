@@ -6,13 +6,16 @@ const colors = require('colors');
 
 
 console.log(process.argv)
-const greetingMessage=()=>{
-console.log("This is command line tool");
-console.log("if red links are not working");
-console.log("if green links are working")
-console.log("Run with a file name to process the file, run with the argument v or version to get the version of this tool")
-}
 
+//This is command line tool - if red links are not working - if green links are working
+//Run with a file name to process file, run with argument v or version to get the version 
+//of this tool
+
+//Flag labeling each URL as a good or bad
+const _label = ({
+    good: "GOOD",
+    bad: "BAD"
+})
 
 if(process.argv.length == 2){
     greetingMessage();
@@ -23,7 +26,6 @@ else{ // more then 2
     if (process.argv[2] == "v" || process.argv[2] == "version") {
         console.log(packageJson.name + " Version " + packageJson.version);
     } else{
-
         const filePath=path.join(__dirname,process.argv[2])
         fs.readFile(filePath,'utf-8',(err,data)=>{
             if(err){
@@ -35,13 +37,12 @@ else{ // more then 2
                 fetch(url,{method:'HEAD',timeout:2000})
                 .then((res)=>{
                     if(res.status==200)
-                    console.log(res.status,url.green)
+                    console.log(res.status,url.green,_label.good.rainbow)
                     else if(res.status==400||res.status==404)
                     console.log(res.status,url)
-                    //else console.log(res.status,url)
                 })
                 .catch((error)=>{
-                    console.log("404",url.red)
+                    console.log("404",url.red, _label.bad.bgRed)
                 })
             })
             }
