@@ -2,6 +2,7 @@ const fs=require('fs')
 const fetch=require('node-fetch')
 const path=require('path')
 const packageJson = require('./package.json');
+const colors = require('colors');
 
 
 console.log(process.argv)
