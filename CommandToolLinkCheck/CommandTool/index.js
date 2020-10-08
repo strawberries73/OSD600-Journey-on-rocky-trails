@@ -17,6 +17,13 @@ const _label = ({
     bad: "BAD"
 })
 
+// ExitCode
+process.on('SIGTERM', () => {
+    server.close(() => {
+      console.log('Program is terminated')
+    })
+  })
+
 if(process.argv.length == 2){
     greetingMessage();
     console.log("Hello");
@@ -40,6 +47,8 @@ else{ // more then 2
                     console.log(res.status,url.green,_label.good.rainbow)
                     else if(res.status==400||res.status==404)
                     console.log(res.status,url)
+                .then.process(); //termination 
+                    
                 })
                 .catch((error)=>{
                     console.log("404",url.red, _label.bad.bgRed)
@@ -49,3 +58,4 @@ else{ // more then 2
         })  
     }
 }
+
