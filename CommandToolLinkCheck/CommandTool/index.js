@@ -20,7 +20,7 @@ const _label = ({
 // ExitCode
 process.on('SIGTERM', () => {
     server.close(() => {
-      console.log('Process terminated')
+      console.log('Program is terminated')
     })
   })
 
