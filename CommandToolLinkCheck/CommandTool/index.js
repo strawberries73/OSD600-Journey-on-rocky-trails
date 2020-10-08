@@ -38,7 +38,7 @@ else{ // more then 2
                     console.log(res.status,url.green)
                     else if(res.status==400||res.status==404)
                     console.log(res.status,url)
-                    else console.log(res.status,url)
+                    //else console.log(res.status,url)
                 })
                 .catch((error)=>{
                     console.log("404",url.red)
