@@ -2,14 +2,7 @@ const fs=require('fs')
 const fetch=require('node-fetch')
 const path=require('path')
 const packageJson = require('./package.json');
-const colors = require('colors');
 
-
-console.log(process.argv)
-
-//This is command line tool - if red links are not working - if green links are working
-//Run with a file name to process file, run with argument v or version to get the version 
-//of this tool
 
 //Flag labeling each URL as a good or bad
 const _label = ({
@@ -47,7 +40,7 @@ else{ // more then 2
                     console.log(res.status,url.green,_label.good.rainbow)
                     else if(res.status==400||res.status==404)
                     console.log(res.status,url)
-                .then.process(); //termination 
+                .then.process(); //Termination 
                     
                 })
                 .catch((error)=>{
@@ -58,4 +51,4 @@ else{ // more then 2
         })  
     }
 }
-
+// done
