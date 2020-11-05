@@ -3,9 +3,6 @@ const fetch=require('node-fetch')
 const path=require('path')
 const packageJson = require('./package.json');
 const colors = require('colors');
-//trying to connect with telescopeData path so that the telescope data can be written
-//from the txt file to the HTML file
-//const telescopeData = ('./telescopeData.txt');
 
 //const getTelescope = fetch('http:/') data
 async function getTelescopeData(){
