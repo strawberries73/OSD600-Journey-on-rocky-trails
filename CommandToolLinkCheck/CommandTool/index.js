@@ -3,6 +3,8 @@ const fetch=require('node-fetch')
 const path=require('path')
 const packageJson = require('./package.json');
 
+console.log(process.argv)
+
 
 //Flag labeling each URL as a good or bad
 const _label = ({
