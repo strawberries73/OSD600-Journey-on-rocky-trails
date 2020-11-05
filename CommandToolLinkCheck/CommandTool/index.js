@@ -23,6 +23,31 @@ if(process.argv.length==2){
     console.log("Hello");
 }
 else{
+    //const getTelescope = fetch('http:/') data
+    async function getTelescopeData(){
+        fetch("http://localhost:3000/posts").then(response =>
+        {return response.json();
+        }).then(data => {
+            console.log(data);
+            console.log(data[0].url); //posts
+
+            //combine the data and write to file
+            for(i = 0; i < data.length; i++) {
+                fetch(`http://localhost:3000${data[i].url}`)
+                .then(res => {
+                    return res.json();
+                    }).then(telescopeposts => {
+                        fs.appendFile("telescopeData.txt", telescopeposts.html, (err) => {
+                            if(err) {
+                                console.log(err)
+                                }
+                            })
+                        })
+                }
+            }
+        )
+    }
+
     const filePath=path.join(__dirname,process.argv[2])
     fs.readFile(filePath,'utf-8',(err,data)=>{
         if(err){
