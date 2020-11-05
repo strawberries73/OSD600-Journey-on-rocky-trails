@@ -5,12 +5,6 @@ const packageJson = require('./package.json');
 const colors = require('colors');
 
 
-const greetingMessage=()=>{
-console.log("This is command line tool");
-console.log("if red links are not working");
-console.log("if green links are working")
-}
-
 // ExitCode
 process.on('SIGTERM', () => {
     server.close(() => {
