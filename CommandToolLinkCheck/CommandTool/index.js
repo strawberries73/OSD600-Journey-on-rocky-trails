@@ -5,7 +5,7 @@ const packageJson = require('./package.json');
 const colors = require('colors');
 //trying to connect with telescopeData path so that the telescope data can be written
 //from the txt file to the HTML file
-const telescopeData = ('./telescopeData.txt');
+//const telescopeData = ('./telescopeData.txt');
 
 //const getTelescope = fetch('http:/') data
 async function getTelescopeData(){
@@ -24,7 +24,7 @@ async function getTelescopeData(){
                     //ToDo: filter the most recent 10 posts without duplicates
 
                     //NOTE ***need html file reference here
-                    fs.appendFile("telescope.txt",
+                    fs.appendFile("telescope.txt", telescopeData.html,
                      (err) => {
                         if(err) {
                             console.log(err)
