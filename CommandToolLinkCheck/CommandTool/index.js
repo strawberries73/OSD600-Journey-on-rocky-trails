@@ -13,7 +13,7 @@ async function getTelescopeData(){
     {return response.json();
     }).then(data => {
         console.log(data);
-        console.log(data[0].url); //posts
+        console.log(data.url); //posts
 
         //combine the data and write to file
         for(i = 0; i < data.length; i++) {
