@@ -3,6 +3,9 @@ const fetch=require('node-fetch')
 const path=require('path')
 const packageJson = require('./package.json');
 const colors = require('colors');
+//trying to connect with telescopeData path so that the telescope data can be written
+//from the txt file to the HTML file
+const data = require('path')
 
 
 // ExitCode
@@ -36,8 +39,12 @@ else{
                 fetch(`http://localhost:3000${data[i].url}`)
                 .then(res => {
                     return res.json();
-                    }).then(telescopeposts => {
-                        fs.appendFile("telescopeData.txt", telescopeposts.html, (err) => {
+                    }).then(telescopeData => {
+                        //ToDo: filter the most recent 10 posts without duplicates
+
+                        //NOTE ***need html file reference here
+                        fs.appendFile("telescopeData.txt", 
+                         (err) => {
                             if(err) {
                                 console.log(err)
                                 }
