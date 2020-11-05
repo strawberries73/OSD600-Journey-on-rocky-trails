@@ -22,8 +22,6 @@ async function getTelescopeData(){
                 return res.json();
                 }).then(telescopeData => {
                     //ToDo: filter the most recent 10 posts without duplicates
-
-                    //NOTE ***need html file reference here
                     fs.appendFile("telescope.txt", telescopeData.html,
                      (err) => {
                         if(err) {
