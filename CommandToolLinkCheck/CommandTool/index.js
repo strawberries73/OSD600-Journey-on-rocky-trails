@@ -20,6 +20,7 @@ const _label = ({
 
 if(process.argv.length==2){
     greetingMessage();
+    console.log("Hello");
 }
 else{
     const filePath=path.join(__dirname,process.argv[2])
