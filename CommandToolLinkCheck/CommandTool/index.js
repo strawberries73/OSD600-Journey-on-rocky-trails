@@ -5,8 +5,36 @@ const packageJson = require('./package.json');
 const colors = require('colors');
 //trying to connect with telescopeData path so that the telescope data can be written
 //from the txt file to the HTML file
-const data = require('path')
+const telescopeData = ('./telescopeData.txt');
 
+//const getTelescope = fetch('http:/') data
+async function getTelescopeData(){
+    fetch("http://localhost:3000/posts").then(response =>
+    {return response.json();
+    }).then(data => {
+        console.log(data);
+        console.log(data[0].url); //posts
+
+        //combine the data and write to file
+        for(i = 0; i < data.length; i++) {
+            fetch(`http://localhost:3000${data[i].url}`)
+            .then(res => {
+                return res.json();
+                }).then(telescopeData => {
+                    //ToDo: filter the most recent 10 posts without duplicates
+
+                    //NOTE ***need html file reference here
+                    fs.appendFile("telescope.txt",
+                     (err) => {
+                        if(err) {
+                            console.log(err)
+                            }
+                        })
+                    })
+            }
+        }
+    )
+}
 
 // ExitCode
 process.on('SIGTERM', () => {
@@ -26,35 +54,6 @@ if(process.argv.length==2){
     console.log("Hello");
 }
 else{
-    //const getTelescope = fetch('http:/') data
-    async function getTelescopeData(){
-        fetch("http://localhost:3000/posts").then(response =>
-        {return response.json();
-        }).then(data => {
-            console.log(data);
-            console.log(data[0].url); //posts
-
-            //combine the data and write to file
-            for(i = 0; i < data.length; i++) {
-                fetch(`http://localhost:3000${data[i].url}`)
-                .then(res => {
-                    return res.json();
-                    }).then(telescopeData => {
-                        //ToDo: filter the most recent 10 posts without duplicates
-
-                        //NOTE ***need html file reference here
-                        fs.appendFile("telescopeData.txt", 
-                         (err) => {
-                            if(err) {
-                                console.log(err)
-                                }
-                            })
-                        })
-                }
-            }
-        )
-    }
-
     const filePath=path.join(__dirname,process.argv[2])
     fs.readFile(filePath,'utf-8',(err,data)=>{
         if(err){
