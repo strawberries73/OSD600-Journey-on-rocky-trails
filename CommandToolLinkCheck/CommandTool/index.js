@@ -7,9 +7,9 @@ const colors = require('colors');
 //const getTelescope = fetch('http:/') data
 async function getTelescopeData(){
     //fetching data from local host
-    fetch("http://localhost:3000/posts").then(response =>
-    {return response.json();
-    }).then(data => {
+    fetch("http://localhost:3000/posts").then(response => {
+        return response.json();
+        }).then(data => {
         console.log(data);
         console.log(data.url); //posts
 
