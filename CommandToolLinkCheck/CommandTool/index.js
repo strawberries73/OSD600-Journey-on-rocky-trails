@@ -4,7 +4,6 @@ const path=require('path')
 const packageJson = require('./package.json');
 const colors = require('colors');
 
-
 // ExitCode
 process.on('SIGTERM', () => {
     server.close(() => {
@@ -24,7 +23,7 @@ async function getTelescopeData(){
     fetch("http://localhost:3000/posts").then(response => {
         return response.json();
         }).then(data => {
-        //console.log(data);
+        console.log(data);
         //console.log(data.url); //posts
 
         //truncate the data and write to file
@@ -41,8 +40,6 @@ async function getTelescopeData(){
                                 console.log(err)
                                 .then.process(); //Termination 
                                 } 
-                            }).catch((err) => {
-                                console.log(err)
                             })
                         })
                     }
@@ -50,13 +47,15 @@ async function getTelescopeData(){
         }
     )
 }
-//getTelescopeData();
-getTelescopeData().then((data) => {
-    if(data.every(result => result === true)) {
-        console.log("exit with 0")
-        .then.process(); //Termination 
-    }
-})
+
+getTelescopeData();
+
+//if (process.argv.length == "--telescope"){
+//    getTelescopeData();
+//}
+//else{
+
+//}
 
 if(process.argv.length==2){
     greetingMessage();
