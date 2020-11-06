@@ -31,7 +31,7 @@ async function getTelescopeData(){
         }
     )
 }
-
+getTelescopeData();
 // ExitCode
 process.on('SIGTERM', () => {
     server.close(() => {
