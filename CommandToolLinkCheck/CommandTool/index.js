@@ -4,34 +4,7 @@ const path=require('path')
 const packageJson = require('./package.json');
 const colors = require('colors');
 
-//const getTelescope = fetch('http:/') data
-async function getTelescopeData(){
-    //fetching data from local host
-    fetch("http://localhost:3000/posts").then(response => {
-        return response.json();
-        }).then(data => {
-        console.log(data);
-        //console.log(data.url); //posts
 
-        //combine the data and write to file
-        for(i = 0; i < data.length; i++) {
-            fetch(`http://localhost:3000${data[i].url}`)
-            .then(res => {
-                return res.json();
-                }).then(telescopeData => {
-                    //ToDo: filter the most recent 10 posts without duplicates
-                    fs.appendFile("telescopeData.txt", telescopeData.html,
-                     (err) => {
-                        if(err) {
-                            console.log(err)
-                            }
-                        })
-                    })
-            }
-        }
-    )
-}
-getTelescopeData();
 // ExitCode
 process.on('SIGTERM', () => {
     server.close(() => {
@@ -43,6 +16,46 @@ process.on('SIGTERM', () => {
 const _label = ({
     good: "GOOD",
     bad: "BAD"
+})
+
+//const getTelescope = fetch('http:/') data
+async function getTelescopeData(){
+    //fetching data from local host
+    fetch("http://localhost:3000/posts").then(response => {
+        return response.json();
+        }).then(data => {
+        //console.log(data);
+        //console.log(data.url); //posts
+
+        //truncate the data and write to file
+        fs.truncate('telescopeData.txt', 0, function() {
+            for(i = 0; i < data.length; i++) {
+                fetch(`http://localhost:3000${data[i].url}`)
+                .then(res => {
+                    return res.json();
+                    }).then(telescopeData => {
+                        //ToDo: filter the most recent 10 posts without duplicates
+                        fs.appendFile("telescopeData.txt", telescopeData.html,
+                         (err) => {
+                            if(err) {
+                                console.log(err)
+                                .then.process(); //Termination 
+                                } 
+                            }).catch((err) => {
+                                console.log(err)
+                            })
+                        })
+                    }
+                })
+        }
+    )
+}
+//getTelescopeData();
+getTelescopeData().then((data) => {
+    if(data.every(result => result === true)) {
+        console.log("exit with 0")
+        .then.process(); //Termination 
+    }
 })
 
 if(process.argv.length==2){
