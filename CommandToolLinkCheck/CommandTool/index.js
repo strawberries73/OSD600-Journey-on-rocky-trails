@@ -11,7 +11,7 @@ async function getTelescopeData(){
         return response.json();
         }).then(data => {
         console.log(data);
-        console.log(data.url); //posts
+        //console.log(data.url); //posts
 
         //combine the data and write to file
         for(i = 0; i < data.length; i++) {
@@ -20,7 +20,7 @@ async function getTelescopeData(){
                 return res.json();
                 }).then(telescopeData => {
                     //ToDo: filter the most recent 10 posts without duplicates
-                    fs.appendFile("telescope.txt", telescopeData.html,
+                    fs.appendFile("telescopeData.txt", telescopeData.html,
                      (err) => {
                         if(err) {
                             console.log(err)
