@@ -24,7 +24,7 @@ async function getTelescopeData(){
         return response.json();
         }).then(data => {
         console.log(data);
-        //console.log(data.url); //posts
+        console.log(data.url); //posts
 
         //truncate the data and write to file
         fs.truncate('telescopeData.txt', 0, function() {
@@ -33,7 +33,7 @@ async function getTelescopeData(){
                 .then(res => {
                     return res.json();
                     }).then(telescopeData => {
-                        //ToDo: filter the most recent 10 posts without duplicates
+                        //Append to telescopeData.txt
                         fs.appendFile("telescopeData.txt", telescopeData.html,
                          (err) => {
                             if(err) {
@@ -50,12 +50,6 @@ async function getTelescopeData(){
 
 getTelescopeData();
 
-//if (process.argv.length == "--telescope"){
-//    getTelescopeData();
-//}
-//else{
-
-//}
 
 if(process.argv.length==2){
     greetingMessage();
