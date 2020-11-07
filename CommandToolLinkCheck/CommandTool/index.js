@@ -24,7 +24,7 @@ async function getTelescopeData(){
         return response.json();
         }).then(data => {
         console.log(data);
-        console.log(data.url); //posts
+        
 
         //truncate the data and write to file
         fs.truncate('telescopeData.txt', 0, function() {

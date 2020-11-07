@@ -10,50 +10,7 @@
 
 <p>The lab for this week is to use the <a href="https://dev.to/yuanleemidori/are-you-a-bad-link-or-a-good-link-fgb">link checker tool</a> with Telescope. Telescope will return the latest 10 posts with their ids and URLs. Our mission is to use the link checker to check these URLs. What I did to achieve the goal were to fetch the data from the localhost, downloading the string and convert it to JSON objects to access the URL properties, and finally, check the links.</p>
 
-<p>Looking forward to working on Telescope in the upcoming weeks! It is impressed that this project was built by previous students in this course. Can't wait to be part of it.</p><p>So before I get started on this blog, I must make a quick errata. <a href="https://dev.to/chrispinkney/release-0-2-4-or-these-english-muffins-keep-throwing-stuff-at-me-2ool">My previous PR for 0.2.4</a> was rejected as it failed on a certain recipe. I tested it on several, alas it was not enough. Maybe I could add a testing module to this project down the road. Things to consider for 0.4. Anyway, long story short I went back and <a href="https://github.com/poundifdef/plainoldrecipe/pull/43/commits/29d8b67a99c5ff1eb5aef629e84749d45c7cf271">rewrote the entire PR</a> using the main website's library, as opposed to using a scraper like I was before. Will report back with progress.</p>
-
-
-
-
-<p>Continuing onwards, this week's blog post is about the second portion to assignment 3 (assignment 0.3.2) in my Open Source Development class. 0.3.2 is about continuing my progress as a novice developer to contribute once more to a project of my choosing; so I will return once again to <a href="https://plainoldrecipe.com/">Plain Old Recipe</a>, a website that I love, written in a language that I love. What a combo.</p>
-
-<p>I added three contributions (four if you include the one that I had to fix)- but two of them are nothing: <a href="https://github.com/poundifdef/plainoldrecipe/pull/45">one is an addition to the project's documentation about running it locally</a>, and <a href="https://github.com/poundifdef/plainoldrecipe/pull/47">the other is about autofocusing the URL bar upon page load</a>. They aren't much, I just wanted to add them because they were small. <a href="https://github.com/poundifdef/plainoldrecipe/pull/46">The main contribution is yet another recipe parser</a> which I developed over the course of a day or two... which I... also might have submitted, and which came back as having failed some tests the developer did. I swear, I'm testing this stuff! I just hadn't predicted just how different one recipe could be from the next.</p>
-
-<p><a href="https://github.com/poundifdef/plainoldrecipe/pull/46/commits/61acbb000537e0e2bf91a6ccac13bfe3dddb8f87">My first implementation</a> made use of the website's internal scraping library which relies on BeautifulSoup4, this took me longer than I thought would have been necessary, as scraping a recipe website's list of instructions always proves harder than expected.</p>
-
-<ul>
-<li>
-<code><div></div></code>
-
-<ul>
-<li>Every step</li>
-<li>Is linked to another step</li>
-<li>So you must first find the main div</li>
-<li>then iterate over the entire div's class.</li>
-<li>It sounds easy when spelled out like this but every website</li>
-<li>handles <code>li</code> children a bit different, which requires</li>
-<li>a different method for scraping</li>
-</ul>
-
-
-</li>
-<li><code></code></li>
-</ul>
-
-<p>However as mentioned, <a href="https://github.com/poundifdef/plainoldrecipe/pull/46#issuecomment-721400737">my first implementation came back</a>. Back to the drawing board. I've always wanted to draw out a system on a whiteboard, don't ask me why. I like to think that system engineering is where I'll end up in my career but we'll see. Something about it really interests me.</p>
-
-<p>However, this time I went back with <a href="https://github.com/poundifdef/plainoldrecipe/pull/46#issuecomment-721400737">a recommendation</a> to try using his internal JSON scraper- something which I'm not very familiar with (JSON, that is). <a href="https://github.com/poundifdef/plainoldrecipe/pull/46/commits/61acbb000537e0e2bf91a6ccac13bfe3dddb8f87">This implementation worked out much better than the previous version did</a>. I'm slowly amassing this weird specialization with the BS4 library (along with basic Python skills.) I particularly enjoy <a href="https://github.com/poundifdef/plainoldrecipe/pull/46/commits/61acbb000537e0e2bf91a6ccac13bfe3dddb8f87#diff-6893fdb529b8a17260bcc5e51aaf7649f782373d7ece9a88b4161e28c5280fd1R23">this elegant method I used</a> to find all the children of an <code>ol</code> tag and iterating over them. The second attempt on this PR has yet to be accepted, and I'm hoping to hear back soon! And yet...</p>
-
-<p>Regardless of how I put in 2 extra "<em>PRs</em>", or had to rework a previous PR, or even how I had to rework <strong>this</strong> PR, I still personally feel like this is not enough. Then I stumbled upon the real meat.</p>
-
-<p>Someone on a previous issue had mentioned a great idea: <a href="https://github.com/poundifdef/plainoldrecipe/issues/17#issuecomment-721413442">a logging system which collects metrics about failed recipe attempts</a>, thus giving the developer new ideas on what websites should be supported in the future. This could be awesome! There could be so much I could iterate on with something like this. That plus having just come back from a <del>four</del> two month co-op using Machine Learning, I'm always down to make pretty graphs or analyze some sort of data. Either way, I'm really excited to hear back from my suggestion on how this could be implemented (with the helpful sage-like wisdom from my Professor, who keenly suggested the idea of using a Google shreadsheet as a "<em>cheaper</em>" alternative to using a database.)</p>
-
-
-
-
-<p>This experience using web technologies is priceless to me, and is exactly what I need as I could use as much web experience as possible for next coming term when I implement my capstone project.</p>
-
-<p>See you next time, hopefully with some good news. This may or may not be the last update to this post, nor the last PR in 0.3. Depends on what happens. Stay tuned!</p><p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--uijJlxBF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/14jzosuo9axnvvl6fzpm.gif"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--uijJlxBF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/14jzosuo9axnvvl6fzpm.gif" loading="lazy"></a></p>
+<p>Looking forward to working on Telescope in the upcoming weeks! It is impressed that this project was built by previous students in this course. Can't wait to be part of it.</p><p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--uijJlxBF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/14jzosuo9axnvvl6fzpm.gif"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--uijJlxBF--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/14jzosuo9axnvvl6fzpm.gif" loading="lazy"></a></p>
 
 <h2>
   <a href="#what-is-telescope">
@@ -249,7 +206,50 @@ index <span class="hljs-number">5</span>c27fc7..aee4859 <span class="hljs-number
 
 
 
-<p>The gist version is here <a href="https://gist.github.com/yzwdroid/26b6cb71f75f3799dfccd5fb0ed9ec79">https://gist.github.com/yzwdroid/26b6cb71f75f3799dfccd5fb0ed9ec79</a></p><p>Fun Fact: I missed the rebase and squash lab because I was so busy doing release 0.2 and other work in my class that it totally skipped my mine. David, if you're reading this, I hope I can squash any other 0s you give me in the future! :D</p>
+<p>The gist version is here <a href="https://gist.github.com/yzwdroid/26b6cb71f75f3799dfccd5fb0ed9ec79">https://gist.github.com/yzwdroid/26b6cb71f75f3799dfccd5fb0ed9ec79</a></p><p>So before I get started on this blog, I must make a quick errata. <a href="https://dev.to/chrispinkney/release-0-2-4-or-these-english-muffins-keep-throwing-stuff-at-me-2ool">My previous PR for 0.2.4</a> was rejected as it failed on a certain recipe. I tested it on several, alas it was not enough. Maybe I could add a testing module to this project down the road. Things to consider for 0.4. Anyway, long story short I went back and <a href="https://github.com/poundifdef/plainoldrecipe/pull/43/commits/29d8b67a99c5ff1eb5aef629e84749d45c7cf271">rewrote the entire PR</a> using the main website's library, as opposed to using a scraper like I was before. Will report back with progress.</p>
+
+
+
+
+<p>Continuing onwards, this week's blog post is about the second portion to assignment 3 (assignment 0.3.2) in my Open Source Development class. 0.3.2 is about continuing my progress as a novice developer to contribute once more to a project of my choosing; so I will return once again to <a href="https://plainoldrecipe.com/">Plain Old Recipe</a>, a website that I love, written in a language that I love. What a combo.</p>
+
+<p>I added three contributions (four if you include the one that I had to fix)- but two of them are nothing: <a href="https://github.com/poundifdef/plainoldrecipe/pull/45">one is an addition to the project's documentation about running it locally</a>, and <a href="https://github.com/poundifdef/plainoldrecipe/pull/47">the other is about autofocusing the URL bar upon page load</a>. They aren't much, I just wanted to add them because they were small. <a href="https://github.com/poundifdef/plainoldrecipe/pull/46">The main contribution is yet another recipe parser</a> which I developed over the course of a day or two... which I... also might have submitted, and which came back as having failed some tests the developer did. I swear, I'm testing this stuff! I just hadn't predicted just how different one recipe could be from the next.</p>
+
+<p><a href="https://github.com/poundifdef/plainoldrecipe/pull/46/commits/61acbb000537e0e2bf91a6ccac13bfe3dddb8f87">My first implementation</a> made use of the website's internal scraping library which relies on BeautifulSoup4, this took me longer than I thought would have been necessary, as scraping a recipe website's list of instructions always proves harder than expected.</p>
+
+<ul>
+<li>
+<code><div></div></code>
+
+<ul>
+<li>Every step</li>
+<li>Is linked to another step</li>
+<li>So you must first find the main div</li>
+<li>then iterate over the entire div's class.</li>
+<li>It sounds easy when spelled out like this but every website</li>
+<li>handles <code>li</code> children a bit different, which requires</li>
+<li>a different method for scraping</li>
+</ul>
+
+
+</li>
+<li><code></code></li>
+</ul>
+
+<p>However as mentioned, <a href="https://github.com/poundifdef/plainoldrecipe/pull/46#issuecomment-721400737">my first implementation came back</a>. Back to the drawing board. I've always wanted to draw out a system on a whiteboard, don't ask me why. I like to think that system engineering is where I'll end up in my career but we'll see. Something about it really interests me.</p>
+
+<p>However, this time I went back with <a href="https://github.com/poundifdef/plainoldrecipe/pull/46#issuecomment-721400737">a recommendation</a> to try using his internal JSON scraper- something which I'm not very familiar with (JSON, that is). <a href="https://github.com/poundifdef/plainoldrecipe/pull/46/commits/61acbb000537e0e2bf91a6ccac13bfe3dddb8f87">This implementation worked out much better than the previous version did</a>. I'm slowly amassing this weird specialization with the BS4 library (along with basic Python skills.) I particularly enjoy <a href="https://github.com/poundifdef/plainoldrecipe/pull/46/commits/61acbb000537e0e2bf91a6ccac13bfe3dddb8f87#diff-6893fdb529b8a17260bcc5e51aaf7649f782373d7ece9a88b4161e28c5280fd1R23">this elegant method I used</a> to find all the children of an <code>ol</code> tag and iterating over them. The second attempt on this PR has yet to be accepted, and I'm hoping to hear back soon! And yet...</p>
+
+<p>Regardless of how I put in 2 extra "<em>PRs</em>", or had to rework a previous PR, or even how I had to rework <strong>this</strong> PR, I still personally feel like this is not enough. Then I stumbled upon the real meat.</p>
+
+<p>Someone on a previous issue had mentioned a great idea: <a href="https://github.com/poundifdef/plainoldrecipe/issues/17#issuecomment-721413442">a logging system which collects metrics about failed recipe attempts</a>, thus giving the developer new ideas on what websites should be supported in the future. This could be awesome! There could be so much I could iterate on with something like this. That plus having just come back from a <del>four</del> two month co-op using Machine Learning, I'm always down to make pretty graphs or analyze some sort of data. Either way, I'm really excited to hear back from my suggestion on how this could be implemented (with the helpful sage-like wisdom from my Professor, who keenly suggested the idea of using a Google shreadsheet as a "<em>cheaper</em>" alternative to using a database.)</p>
+
+
+
+
+<p>This experience using web technologies is priceless to me, and is exactly what I need as I could use as much web experience as possible for next coming term when I implement my capstone project.</p>
+
+<p>See you next time, hopefully with some good news. This may or may not be the last update to this post, nor the last PR in 0.3. Depends on what happens. Stay tuned!</p><p>Fun Fact: I missed the rebase and squash lab because I was so busy doing release 0.2 and other work in my class that it totally skipped my mine. David, if you're reading this, I hope I can squash any other 0s you give me in the future! :D</p>
 
 <p>In this week's post, we're once again working with our link checker repo. This time, however, we're to make a new option that checks the urls of the last 10 blog posts featured on our school's open source website, Telescope. This means that I had to fork and setup telescope locally, which is totally fine since I have to work on it for release 0.3.</p>
 
