@@ -48,10 +48,9 @@ async function getTelescopeData(){
     )
 }
 
-getTelescopeData();
+//getTelescopeData(); //taking telescope URL data 
 
 if(process.argv.length==2){
-    greetingMessage();
     console.log("Hello");
 }
 else{
@@ -64,7 +63,8 @@ else{
     }
 }
 
-function processLinks(p_filePath) {
+async function processLinks(p_filePath) {
+    let allGoodLinks = true;
     fs.readFile(p_filePath, 'utf-8', (err, data) => {
         if (err) {
             console.log("Fail to read file", err)
@@ -74,12 +74,15 @@ function processLinks(p_filePath) {
             validUrl.forEach((url) => {
                 fetch(url, { method: 'HEAD', timeout: 2000 })
                     .then((res) => {
-                        if (res.status == 200)
+                        if (res.status == 200) {
                             console.log(res.status, url.green, _label.good.rainbow)
-                        else if (res.status == 400 || res.status == 404)
+                        }
+                            
+                        if (res.status == 400 || res.status == 404) {
                             console.log(res.status, url)
-                                .then.process(); //termination 
- 
+                            .then.process(); //termination
+                            allGoodLinks = false; 
+                        }
                     })
                     .catch((error) => {
                         console.log("404", url.red, _label.bad.bgRed)
@@ -87,4 +90,9 @@ function processLinks(p_filePath) {
             })
         }
     })
+    return allGoodLinks;
 }
+
+module.exports = {
+    processLinks
+};
