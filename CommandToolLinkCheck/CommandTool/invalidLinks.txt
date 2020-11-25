@@ -1,0 +1,3 @@
+http://s-aleinikov.blog.ca/feed/atom/posts/
+404 http://ejtorre.blog.ca/feed/rss2/posts/ 
+404 http://rickeyre.ca/open-source-feed.xml 
