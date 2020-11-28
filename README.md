@@ -7,13 +7,8 @@ Clone ConsoleApplicationOSD600 since this is the successful version.
 
    npm install
 
-   npm install node-fetch
-
-   npm install colors
-
-   Run command:  node index.js argv.html
+  Run command:  node index.js argv.html
    
-
 Features:
 
 Prints good Urls in green and prints broken Urls in red.
