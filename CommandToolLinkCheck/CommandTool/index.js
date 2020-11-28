@@ -1,20 +1,20 @@
-const fs=require('fs')
-const fetch=require('node-fetch')
-const path=require('path')
-const colors = require('colors');
+const fs=require("fs");
+const fetch=require("node-fetch");
+const path=require("path");
+const colors = require("colors");
 
 // ExitCode
-process.on('SIGTERM', () => {
+process.on("SIGTERM", () => {
     server.close(() => {
-      console.log('Program is terminated')
-    })
-  })
+      console.log("Program is terminated");
+    });
+  });
 
 //Flag labeling each URL as a good or bad
 const _label = ({
     good: "GOOD",
     bad: "BAD"
-})
+});
 
 //const getTelescope = fetch('http:/') data
 async function getTelescopeData() {
@@ -22,7 +22,7 @@ async function getTelescopeData() {
     const response = await fetch("http://localhost:3000/posts");
     const data = await response.json();
 
-    fs.truncateSync('telescopeData.txt', 0);
+    fs.truncateSync("telescopeData.txt", 0);
     
     const postPromises = [];
 
@@ -34,7 +34,7 @@ async function getTelescopeData() {
             })
             .then(postObj => {
                 return postObj.feed.url;
-            })
+            });
 
         postPromises.push(promise);
     }
@@ -53,7 +53,7 @@ else {
     if (process.argv[2] == "v" || process.argv[2] == "version") {
         console.log(packageJson.name + " Version " + packageJson.version);
     } else {
-        const filePath = path.join(__dirname, process.argv[2])
+        const filePath = path.join(__dirname, process.argv[2]);
         processLinks(filePath);
     }
 }
@@ -76,10 +76,10 @@ async function processLinks(p_filePath) {
 
     validUrl.forEach(url => {
         // store each fetch call in arr
-        const promise = fetch(url, { method: 'HEAD', timeout: 2000 })
+        const promise = fetch(url, { method: "HEAD", timeout: 2000 })
             .then((res) => {
                 if (res.status == 200) {
-                    console.log(res.status, url.green, _label.good.rainbow)
+                    console.log(res.status, url.green, _label.good.rainbow);
                 }
                     
                 if (res.status == 400 || res.status == 404) {
@@ -89,7 +89,7 @@ async function processLinks(p_filePath) {
                 }
             })
             .catch((error) => {
-                console.log("404", url.red, _label.bad.bgRed)
+                console.log("404", url.red, _label.bad.bgRed);
             });
         
         urlPromises.push(promise);
