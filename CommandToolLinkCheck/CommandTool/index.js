@@ -3,22 +3,22 @@ const fetch=require("node-fetch");
 const path=require("path");
 const colors = require("colors");
 
-// ExitCode
+// exitCode
 process.on("SIGTERM", () => {
     server.close(() => {
       console.log("Program is terminated");
     });
   });
 
-//Flag labeling each URL as a good or bad
+// flag labeling each URL as a good or bad
 const _label = ({
     good: "GOOD",
     bad: "BAD"
 });
 
-//const getTelescope = fetch('http:/') data
+// const getTelescope = fetch('http:/') data
 async function getTelescopeData() {
-    //fetching data from local host
+    // fetching data from local host
     const response = await fetch("http://localhost:3000/posts");
     const data = await response.json();
 
@@ -84,7 +84,7 @@ async function processLinks(p_filePath) {
                     
                 if (res.status == 400 || res.status == 404) {
                     console.log(res.status, url)
-                    .then.process(); //termination
+                    .then.process(); // termination
                     allGoodLinks = false; 
                 }
             })
