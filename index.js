@@ -44,7 +44,7 @@ async function getTelescopeData() {
   fs.writeFileSync("telescopeData.txt", posts);
 }
 
-getTelescopeData(); //taking telescope URL data
+//getTelescopeData(); //taking telescope URL data
 
 if (process.argv.length == 2) {
   console.log("Hello");
