@@ -1,8 +1,11 @@
 {
-  "name": "command",
+  "name": "jenn-brokenlink",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "jenn-brokenlink": "./bin/LinkCheck.js"
+  },
   "scripts": {
     "prettier": "prettier --write \"./**/*.{html,js,md}\"",
     "eslint": "eslint .",
