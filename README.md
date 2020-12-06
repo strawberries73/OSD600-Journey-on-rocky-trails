@@ -1,7 +1,8 @@
 # OSD600-Journey-on-rocky-trails
-As much as I desire to become more acquainted with C++, I was truly not happy with the slow progression and outcome of this version. What was I thinking?!
-I have made a version 2 on node.js.
-Clone ConsoleApplicationOSD600 since this is the successful version.
+This is a command line tool that takes a file as input, reads and finds http:// and https:// links throughout the file and tells the user which ones are working and which ones are broken.
+
+The tool will output all of the links with a red "BAD",  and a rainbow "GOOD"
+Image shown here: https://github.com/strawberries73/OSD600-Journey-on-rocky-trails/blob/master/vscode.jpg
 
   Install project dependencies:
 
@@ -9,9 +10,16 @@ Clone ConsoleApplicationOSD600 since this is the successful version.
 
   Run command:  node index.js argv.html
    
+Note:
+Node index.js v and node index.js version will print the current version
+
 Features:
+[Eslint](https://eslint.org/)
+[Prettier](https://prettier.io/)
 
-Prints good Urls in green and prints broken Urls in red.
-https://github.com/strawberries73/OSD600-Journey-on-rocky-trails/blob/master/vscode.jpg
 
-Note:  CommandToolLinkCheck is no longer valid code for this project
+
+
+
+
+
