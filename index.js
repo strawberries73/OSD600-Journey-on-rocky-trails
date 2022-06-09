@@ -6,7 +6,7 @@ const colors = require("colors");
 // exitCode
 process.on("SIGTERM", () => {
   server.close(() => {
-    console.log("Program is terminated");
+    console.log("Program terminated");
   });
 });
 
